@@ -1,5 +1,5 @@
 function loadBankPage() {
-  const pageUrl = "https://bankofgeorgia.ge/ka/retail"; // Replace with the bank URL
+  let pageUrl = "https://bankofgeorgia.ge/ka/retail"; // Replace with the bank URL
   const iframe = document.getElementById("pageFrame");
   iframe.src = pageUrl;
 
@@ -47,3 +47,15 @@ function loadSavedWords() {
 }
 
 loadSavedWords();
+
+function clickRetail() {
+  const iframe = document.getElementById("cover");
+  let countClick = 0;
+
+  iframe.addEventListener("click", (event) => {
+    if (event.isTrusted) countClick++;
+    if (countClick == 2) window.location.href = "bank.html";
+  });
+}
+
+clickRetail();
